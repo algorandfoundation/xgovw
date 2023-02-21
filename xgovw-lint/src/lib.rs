@@ -50,7 +50,8 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
     //use lints::preamble::regex;
     use lints::{markdown, preamble};
 
-    [   //
+    [
+        //
         // File
         //
         (
@@ -59,7 +60,8 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
                 name: "xgov",
                 prefix: "xgov-",
                 suffix: ".md",
-            }.boxed(),
+            }
+            .boxed(),
         ),
         //
         // Preamble
@@ -97,15 +99,82 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
         ("preamble-no-dup", preamble::NoDuplicates.boxed()),
         ("preamble-trim", preamble::Trim.boxed()),
         ("preamble-period", preamble::Uint("period").boxed()),
-        ("preamble-len-title",preamble::Length {name: "title",min: Some(2),max: Some(100),}.boxed(),),
+        (
+            "preamble-len-title",
+            preamble::Length {
+                name: "title",
+                min: Some(2),
+                max: Some(100),
+            }
+            .boxed(),
+        ),
         ("preamble-author", preamble::Author("author").boxed()),
         ("preamble-list-author", preamble::List("author").boxed()),
-        ("preamble-len-company_name",preamble::Length {name: "company_name",min: Some(2),max: Some(100),}.boxed(),),
-        ("preamble-amount_requested", preamble::Uint("amount_requested").boxed()),
-        ("preamble-enum-category",preamble::OneOf {name: "category", values: &["dApps","Tools","Community"],}.boxed(),),
-        ("preamble-enum-focus_area",preamble::OneOf {name: "focus_area", values: &["Banking","Defi","Dex","Gaming","Identity","Marketplace","Metaverse","NFT","Oracle","Storage","User","Onboarding","IDE","Teal","Deployment","Libraries","Monitoring","Node","Education"],}.boxed(),),
-        ("preamble-enum-open_source",preamble::OneOf {name: "open_source", values: &["Yes","No",],}.boxed(),),
-        ("preamble-enum-status",preamble::OneOf {name: "status", values: &["Draft","Final",],}.boxed(),),
+        (
+            "preamble-len-company_name",
+            preamble::Length {
+                name: "company_name",
+                min: Some(2),
+                max: Some(100),
+            }
+            .boxed(),
+        ),
+        (
+            "preamble-amount_requested",
+            preamble::Uint("amount_requested").boxed(),
+        ),
+        (
+            "preamble-enum-category",
+            preamble::OneOf {
+                name: "category",
+                values: &["dApps", "Tools", "Community"],
+            }
+            .boxed(),
+        ),
+        (
+            "preamble-enum-focus_area",
+            preamble::OneOf {
+                name: "focus_area",
+                values: &[
+                    "Banking",
+                    "Defi",
+                    "Dex",
+                    "Gaming",
+                    "Identity",
+                    "Marketplace",
+                    "Metaverse",
+                    "NFT",
+                    "Oracle",
+                    "Storage",
+                    "User",
+                    "Onboarding",
+                    "IDE",
+                    "Teal",
+                    "Deployment",
+                    "Libraries",
+                    "Monitoring",
+                    "Node",
+                    "Education",
+                ],
+            }
+            .boxed(),
+        ),
+        (
+            "preamble-enum-open_source",
+            preamble::OneOf {
+                name: "open_source",
+                values: &["Yes", "No"],
+            }
+            .boxed(),
+        ),
+        (
+            "preamble-enum-status",
+            preamble::OneOf {
+                name: "status",
+                values: &["Draft", "Final"],
+            }
+            .boxed(),
+        ),
         //
         // Main
         //
@@ -139,21 +208,24 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
                 mode: markdown::regex::Mode::Excludes,
                 pattern: r"xgov[\s-]*[0-9]+",
                 message: "proposals must be referenced with the form `xGov-N` (not `xgov-N`)",
-            }.boxed(),
+            }
+            .boxed(),
         ),
         (
             "markdown-re-xgov-dash",
             markdown::Regex {
                 mode: markdown::regex::Mode::Excludes,
                 pattern: r"(?i)xGov[\s]*[0-9]+",
-                message: "proposals must be referenced with the form `xGov-N` (not `XGOVN` or `xGov N`)",
-            }.boxed(),
+                message:
+                    "proposals must be referenced with the form `xGov-N` (not `XGOVN` or `xGov N`)",
+            }
+            .boxed(),
         ),
         (
             "markdown-link-first",
             markdown::LinkFirst(r"(?i)xGov-[0-9]+").boxed(),
         ),
-        ("markdown-rel-links", markdown::RelativeLinks.boxed())
+        ("markdown-rel-links", markdown::RelativeLinks.boxed()),
     ]
     .into_iter()
 }
