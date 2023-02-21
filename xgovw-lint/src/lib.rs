@@ -153,7 +153,7 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
             "markdown-link-first",
             markdown::LinkFirst(r"(?i)xGov-[0-9]+").boxed(),
         ),
-        ("markdown-rel-links", markdown::RelativeLinks.boxed()),
+        ("markdown-rel-links", markdown::RelativeLinks.boxed())
     ]
     .into_iter()
 }
