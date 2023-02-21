@@ -112,7 +112,7 @@ You can find the [package on npm](https://www.npmjs.com/package/xgovw-lint-js).
 ### Building & Publishing
 
 ```bash
-cd xgovw
+cd xgovw-lint-js
 wasm-pack build -t nodejs
 wasm-pack publish -t nodejs
 ```
