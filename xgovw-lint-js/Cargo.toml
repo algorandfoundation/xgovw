@@ -1,0 +1,31 @@
+[package]
+name = "xgovw-lint-js"
+version = "0.1.12"
+edition = "2021"
+license = "MPL-2.0"
+rust-version = "1.60"
+repository = "https://github.com/algorandfoundation/xgovw"
+
+description = "Node.js bindings for xgovw, the Algorand Requests for Comments validator"
+publish = false
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[features]
+default = ["console_error_panic_hook"]
+
+[dependencies]
+annotate-snippets = "0.9.1"
+wasm-bindgen = { version = "0.2.81", features = [ "serde-serialize" ] }
+wasm-bindgen-futures = "0.4.31"
+console_error_panic_hook = { version = "0.1.7", optional = true }
+xgovw-lint = { version = "0.1.0", path = "../xgovw-lint" }
+js-sys = "0.3.58"
+serde_json = "1.0.81"
+
+[dev-dependencies]
+wasm-bindgen-test = "0.3.13"
+serde_json = "1.0.82"
