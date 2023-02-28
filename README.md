@@ -98,7 +98,7 @@ error[markdown-order-section]: section `Team` must come after `Abstract`
 | `markdown-req-section`              | Required sections are present in the body of the proposal.                                    |
 | `markdown-order-section`            | There are no extra sections and the sections are in the correct order.                        |
 | `markdown-re-xgov-not-xgov`         | Other xgovs are referenced using xGov-X, not xgov-X.                                          |
-| `markdown-re-xgov-dash`             | Other xgovs are referenced using xGov-X, not ARCX or xGov X.                                  |
+| `markdown-re-xgov-dash`             | Other xgovs are referenced using xGov-X, not XGOVX or xGov X.                                  |
 | `markdown-link-first`               | First mention of an xgov must be a link.                                                      |
 | `markdown-rel-links`                | All URLs in the page are relative. (or use the html <a href="uri">Topic<a>) format            |
 
