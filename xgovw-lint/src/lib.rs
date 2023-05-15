@@ -69,7 +69,6 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
         (
             "preamble-req",
             preamble::Required(&[
-                "period",
                 "title",
                 "author",
                 "company_name",
