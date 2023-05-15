@@ -3,13 +3,13 @@ name = "xgovw-lint"
 version = "0.1.0"
 edition = "2021"
 license = "MPL-2.0"
-rust-version = "1.60"
+rust-version = "1.64"
 repository = "https://github.com/algorandfoundation/xgovw"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-comrak = { version = "0.14.0", default-features = false }
+comrak = { version = "0.18.0", default-features = false }
 annotate-snippets = "0.9.1"
 snafu = "0.7.1"
 regex = "1.5.6"
