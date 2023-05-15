@@ -155,7 +155,7 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
                     "Node",
                     "Education",
                     "Social",
-                    "Wallet",
+                    "Wallet"
                 ],
             }
             .boxed(),
