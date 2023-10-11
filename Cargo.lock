@@ -969,7 +969,7 @@ dependencies = [
 
 [[package]]
 name = "xgovw"
-version = "0.1.0"
+version = "0.2.0"
 dependencies = [
  "annotate-snippets",
  "clap",
@@ -997,7 +997,7 @@ dependencies = [
 
 [[package]]
 name = "xgovw-lint-js"
-version = "0.1.16"
+version = "0.2.0"
 dependencies = [
  "annotate-snippets",
  "console_error_panic_hook",

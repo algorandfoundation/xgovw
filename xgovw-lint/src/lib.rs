@@ -69,8 +69,10 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
         (
             "preamble-req",
             preamble::Required(&[
+                "id",
                 "title",
                 "author",
+                "discussion-to",
                 "company_name",
                 "category",
                 "focus_area",
@@ -83,9 +85,10 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
         (
             "preamble-order",
             preamble::Order(&[
-                "period",
+                "id",
                 "title",
                 "author",
+                "discussion-to",
                 "company_name",
                 "category",
                 "focus_area",
@@ -97,7 +100,7 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
         ),
         ("preamble-no-dup", preamble::NoDuplicates.boxed()),
         ("preamble-trim", preamble::Trim.boxed()),
-        ("preamble-period", preamble::Uint("period").boxed()),
+        ("preamble-id", preamble::Uint("id").boxed()),
         (
             "preamble-len-title",
             preamble::Length {
@@ -115,6 +118,16 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
                 name: "company_name",
                 min: Some(2),
                 max: Some(100),
+
+            }
+            .boxed(),
+        ),
+        (
+            "preamble-len-amount_requested",
+            preamble::Length {
+                name: "amount_requested",
+                min: Some(4),
+                max: Some(100),
             }
             .boxed(),
         ),
@@ -126,7 +139,7 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
             "preamble-enum-category",
             preamble::OneOf {
                 name: "category",
-                values: &["dApps", "Tools", "Community"],
+                values: &["dApps", "Tools", "Community","Other"],
             }
             .boxed(),
         ),
@@ -155,6 +168,7 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
                     "Education",
                     "Social",
                     "Wallet",
+                    "Other"
                 ],
             }
             .boxed(),
@@ -171,7 +185,7 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
             "preamble-enum-status",
             preamble::OneOf {
                 name: "status",
-                values: &["Draft", "Final"],
+                values: &["Draft", "Final","Approved"],
             }
             .boxed(),
         ),
@@ -184,7 +198,7 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
                 "Abstract",
                 "Team",
                 "Experience with Algorand",
-                "Roadmap",
+                "Present Proposal",
                 "Benefits for the community",
                 "Additional information",
             ])
@@ -196,7 +210,8 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
                 "Abstract",
                 "Team",
                 "Experience with Algorand",
-                "Roadmap",
+                "Present Proposal",
+                "Future Blueprint",
                 "Benefits for the community",
                 "Additional information",
             ])
