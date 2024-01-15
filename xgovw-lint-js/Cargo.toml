@@ -1,6 +1,6 @@
 [package]
 name = "xgovw-lint-js"
-version = "0.2.1"
+version = "0.2.3"
 edition = "2021"
 license = "MPL-2.0"
 rust-version = "1.60"

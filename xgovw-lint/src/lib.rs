@@ -70,6 +70,7 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
             "preamble-req",
             preamble::Required(&[
                 "id",
+                "period",
                 "title",
                 "author",
                 "discussions-to",
@@ -86,6 +87,7 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
             "preamble-order",
             preamble::Order(&[
                 "id",
+                "period",
                 "title",
                 "author",
                 "discussions-to",
@@ -101,6 +103,7 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
         ("preamble-no-dup", preamble::NoDuplicates.boxed()),
         ("preamble-trim", preamble::Trim.boxed()),
         ("preamble-id", preamble::Uint("id").boxed()),
+        ("preamble-period", preamble::Uint("period").boxed()),
         (
             "preamble-len-title",
             preamble::Length {
@@ -126,7 +129,7 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
             "preamble-len-amount_requested",
             preamble::Length {
                 name: "amount_requested",
-                min: Some(4),
+                min: Some(5),
                 max: Some(100),
             }
             .boxed(),
@@ -193,25 +196,25 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
         // Main
         //
         (
-            "markdown-req-section",
-            markdown::SectionRequired(&[
+            "markdown-order-section",
+            markdown::SectionOrder(&[
                 "Abstract",
                 "Team",
                 "Experience with Algorand",
                 "Present Proposal",
+                "Future Blueprint",
                 "Benefits for the community",
                 "Additional information",
             ])
             .boxed(),
         ),
         (
-            "markdown-order-section",
+            "markdown-required-section",
             markdown::SectionRequired(&[
                 "Abstract",
                 "Team",
                 "Experience with Algorand",
                 "Present Proposal",
-                "Future Blueprint",
                 "Benefits for the community",
                 "Additional information",
             ])

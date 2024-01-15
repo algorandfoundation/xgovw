@@ -90,7 +90,7 @@ error[markdown-order-section]: section `Team` must come after `Abstract`
 | `preamble-author`                   | The author header is correctly formatted, and there is at least one GitHub user listed.       |
 | `preamble-list-author`              | The `author` header is a correctly formatted comma-separated list.                            |
 | `preamble-len-company_name`         | The `company_name` header isn't too long.                                                     |
-| `preamble-len-amount_requested`         | The `amount_requested` header is a at least 4 digits. |
+| `preamble-len-amount_requested`         | The `amount_requested` header is a at least 5 digits. |
 | `preamble-amount_requested`         | The `amount_requested` header is a positive integer                                           |
 | `preamble-enum-category`            | The `category` header is a recognized value.                                                  |
 | `preamble-enum-focus_area`          | The `focus_area` header is a recognized value.                                                |
