@@ -3,7 +3,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
-
+pub mod email;
 pub mod author;
 pub mod date;
 pub mod file_name;
@@ -22,6 +22,7 @@ pub mod uint;
 pub mod url;
 
 pub use self::author::Author;
+pub use self::email::Email;
 pub use self::date::Date;
 pub use self::file_name::FileName;
 pub use self::length::Length;

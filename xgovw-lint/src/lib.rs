@@ -73,12 +73,15 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
                 "period",
                 "title",
                 "author",
+                "email",
                 "discussions-to",
                 "company_name",
                 "category",
                 "focus_area",
                 "open_source",
+                "funding_type",
                 "amount_requested",
+                "delivery_date",
                 "status",
             ])
             .boxed(),
@@ -90,12 +93,15 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
                 "period",
                 "title",
                 "author",
+                "email",
                 "discussions-to",
                 "company_name",
                 "category",
                 "focus_area",
                 "open_source",
+                "funding_type",
                 "amount_requested",
+                "delivery_date",
                 "status",
             ])
             .boxed(),
@@ -114,6 +120,8 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
             .boxed(),
         ),
         ("preamble-author", preamble::Author("author").boxed()),
+        ("preamble-email", preamble::Email("email").boxed()),
+        ("preamble-delivery_date", preamble::Date("delivery_date").boxed()),
         ("preamble-list-author", preamble::List("author").boxed()),
         (
             "preamble-len-company_name",
@@ -181,6 +189,14 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
             preamble::OneOf {
                 name: "open_source",
                 values: &["Yes", "No"],
+            }
+            .boxed(),
+        ),
+        (
+            "preamble-enum-funding_type",
+            preamble::OneOf {
+                name: "funding_type",
+                values: &["Proactive", "Retroactive"],
             }
             .boxed(),
         ),

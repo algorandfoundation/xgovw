@@ -112,6 +112,8 @@ You can find the [package on npm](https://www.npmjs.com/package/xgovw-lint-js).
 
 ### Building & Publishing
 
+`cargo install --path=xgovw xgovw`
+
 ```bash
 cd xgovw-lint-js
 wasm-pack build -t nodejs
