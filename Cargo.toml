@@ -20,5 +20,5 @@ xgovw-lint = { version = "0.1.0", path = "xgovw-lint", features = [ "tokio" ] }
 serde_json = "1.0.81"
 
 [patch.crates-io.comrak]
-git = "https://github.com/SamWilsn/comrak.git"
-branch = "inline-line-numbers"
+git = "https://github.com/kivikakk/comrak.git"
+branch = "main"
