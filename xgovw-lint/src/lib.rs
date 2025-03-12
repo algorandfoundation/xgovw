@@ -57,8 +57,8 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
         (
             "preamble-file-name",
             preamble::FileName {
-                name: "xgov",
-                prefix: "xgov-",
+                name: "xgov_council",
+                prefix: "xgov_council-",
                 suffix: ".md",
             }
             .boxed(),
@@ -70,18 +70,9 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
             "preamble-req",
             preamble::Required(&[
                 "id",
-                "period",
                 "title",
                 "author",
                 "email",
-                "discussions-to",
-                "company_name",
-                "category",
-                "focus_area",
-                "open_source",
-                "funding_type",
-                "amount_requested",
-                "delivery_date",
                 "status",
             ])
             .boxed(),
@@ -90,18 +81,9 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
             "preamble-order",
             preamble::Order(&[
                 "id",
-                "period",
                 "title",
                 "author",
                 "email",
-                "discussions-to",
-                "company_name",
-                "category",
-                "focus_area",
-                "open_source",
-                "funding_type",
-                "amount_requested",
-                "delivery_date",
                 "status",
             ])
             .boxed(),
@@ -109,7 +91,6 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
         ("preamble-no-dup", preamble::NoDuplicates.boxed()),
         ("preamble-trim", preamble::Trim.boxed()),
         ("preamble-id", preamble::Uint("id").boxed()),
-        ("preamble-period", preamble::Uint("period").boxed()),
         (
             "preamble-len-title",
             preamble::Length {
@@ -121,145 +102,38 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
         ),
         ("preamble-author", preamble::Author("author").boxed()),
         ("preamble-email", preamble::Email("email").boxed()),
-        ("preamble-delivery_date", preamble::Date("delivery_date").boxed()),
         ("preamble-list-author", preamble::List("author").boxed()),
-        (
-            "preamble-len-company_name",
-            preamble::Length {
-                name: "company_name",
-                min: Some(2),
-                max: Some(100),
-
-            }
-            .boxed(),
-        ),
-        (
-            "preamble-len-amount_requested",
-            preamble::Length {
-                name: "amount_requested",
-                min: Some(5),
-                max: Some(100),
-            }
-            .boxed(),
-        ),
-        (
-            "preamble-amount_requested",
-            preamble::Uint("amount_requested").boxed(),
-        ),
-        (
-            "preamble-enum-category",
-            preamble::OneOf {
-                name: "category",
-                values: &["dApps", "Tools", "Community","Other"],
-            }
-            .boxed(),
-        ),
-        (
-            "preamble-enum-focus_area",
-            preamble::OneOf {
-                name: "focus_area",
-                values: &[
-                    "Banking",
-                    "Defi",
-                    "Dex",
-                    "Gaming",
-                    "Identity",
-                    "Marketplace",
-                    "Metaverse",
-                    "NFT",
-                    "Oracle",
-                    "Storage",
-                    "User Onboarding",
-                    "IDE",
-                    "Teal",
-                    "Deployment",
-                    "Libraries",
-                    "Monitoring",
-                    "Node",
-                    "Education",
-                    "Social",
-                    "Wallet",
-                    "Other"
-                ],
-            }
-            .boxed(),
-        ),
-        (
-            "preamble-enum-open_source",
-            preamble::OneOf {
-                name: "open_source",
-                values: &["Yes", "No"],
-            }
-            .boxed(),
-        ),
-        (
-            "preamble-enum-funding_type",
-            preamble::OneOf {
-                name: "funding_type",
-                values: &["Proactive", "Retroactive"],
-            }
-            .boxed(),
-        ),
-        (
-            "preamble-enum-status",
-            preamble::OneOf {
-                name: "status",
-                values: &["Draft", "Final","Approved"],
-            }
-            .boxed(),
-        ),
-        //
-        // Main
-        //
         (
             "markdown-order-section",
             markdown::SectionOrder(&[
-                "Abstract",
-                "Team",
-                "Experience with Algorand",
-                "Present Proposal",
-                "Future Blueprint",
-                "Benefits for the community",
-                "Additional information",
+                "Rationale",
+                "Relevant Experience",
+                "Additional Information",
             ])
             .boxed(),
         ),
         (
             "markdown-required-section",
             markdown::SectionRequired(&[
-                "Abstract",
-                "Team",
-                "Experience with Algorand",
-                "Present Proposal",
-                "Benefits for the community",
-                "Additional information",
+                "Rationale",
+                "Relevant Experience",
+                "Additional Information",
             ])
             .boxed(),
         ),
-        (
-            "markdown-re-xgov-not-xgov",
-            markdown::Regex {
-                mode: markdown::regex::Mode::Excludes,
-                pattern: r"xgov[\s-]*[0-9]+",
-                message: "proposals must be referenced with the form `xGov-N` (not `xgov-N`)",
-            }
-            .boxed(),
-        ),
-        (
-            "markdown-re-xgov-dash",
-            markdown::Regex {
-                mode: markdown::regex::Mode::Excludes,
-                pattern: r"(?i)xGov[\s]*[0-9]+",
-                message:
-                    "proposals must be referenced with the form `xGov-N` (not `XGOVN` or `xGov N`)",
-            }
-            .boxed(),
-        ),
-        (
-            "markdown-link-first",
-            markdown::LinkFirst(r"(?i)xGov-[0-9]+").boxed(),
-        ),
         ("markdown-rel-links", markdown::RelativeLinks.boxed()),
+        (
+            "preamble-enum-status",
+            preamble::OneOf {
+                name: "status",
+                values: &[
+                    "Candidate",
+                    "Elected",
+                    "Not Elected",
+                ],
+            }
+            .boxed(),
+        ),
     ]
     .into_iter()
 }
