@@ -1,6 +1,6 @@
 [package]
 name = "xgovw-lint-js"
-version = "1.0.1"
+version = "1.0.2"
 edition = "2021"
 license = "MPL-2.0"
 rust-version = "1.60"
@@ -22,7 +22,7 @@ annotate-snippets = "0.9.1"
 wasm-bindgen = { version = "0.2.81", features = [ "serde-serialize" ] }
 wasm-bindgen-futures = "0.4.31"
 console_error_panic_hook = { version = "0.1.7", optional = true }
-xgovw-lint = { version = "0.1.0", path = "../xgovw-lint" }
+xgovw-lint = { version = "1.0.0", path = "../xgovw-lint" }
 js-sys = "0.3.58"
 serde_json = "1.0.81"
 

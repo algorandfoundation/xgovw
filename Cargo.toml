@@ -4,7 +4,7 @@ members = [ "xgovw-lint", "xgovw-lint-js" ]
 [package]
 name = "xgovw"
 description = "xGov Council application linter"
-version = "1.0.1"
+version = "1.0.2"
 edition = "2021"
 license = "MPL-2.0"
 rust-version = "1.60"
@@ -16,9 +16,9 @@ repository = "https://github.com/algorandfoundation/xgovw"
 annotate-snippets = "0.9.1"
 tokio = { version = "1.19.2", features = [ "fs", "macros", "rt-multi-thread" ] }
 clap = { version = "3.2.8", features = [ "derive" ] }
-xgovw-lint = { version = "0.1.0", path = "xgovw-lint", features = [ "tokio" ] }
+xgovw-lint = { version = "1.0.0", path = "xgovw-lint", features = [ "tokio" ] }
 serde_json = "1.0.81"
 
 [patch.crates-io.comrak]
-git = "https://github.com/kivikakk/comrak.git"
-branch = "main"
+git = "https://github.com/SamWilsn/comrak.git"
+branch = "inline-line-numbers"
