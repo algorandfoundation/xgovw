@@ -901,7 +901,7 @@ checksum = "213b7324336b53d2414b2db8537e56544d981803139155afa84f76eeebb7a546"
 
 [[package]]
 name = "xgovw"
-version = "1.0.0"
+version = "1.0.1"
 dependencies = [
  "annotate-snippets",
  "clap",
@@ -929,7 +929,7 @@ dependencies = [
 
 [[package]]
 name = "xgovw-lint-js"
-version = "1.0.0"
+version = "1.0.1"
 dependencies = [
  "annotate-snippets",
  "console_error_panic_hook",

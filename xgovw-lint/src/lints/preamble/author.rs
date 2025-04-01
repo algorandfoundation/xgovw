@@ -14,18 +14,8 @@ fn footer() -> Vec<Annotation<'static>> {
         Annotation {
             annotation_type: AnnotationType::Help,
             id: None,
-            label: Some("Try `Random J. User (@username)` for an author with a GitHub username."),
-        },
-        Annotation {
-            annotation_type: AnnotationType::Help,
-            id: None,
-            label: Some("Try `Random J. User <test@example.com>` for an author with an email."),
-        },
-        Annotation {
-            annotation_type: AnnotationType::Help,
-            id: None,
-            label: Some("Try `Random J. User` for an author without contact information."),
-        },
+            label: Some("Try `Random J. User (@username)`."),
+        }
     ]
 }
 

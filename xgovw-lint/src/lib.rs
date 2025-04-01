@@ -70,9 +70,9 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
             "preamble-req",
             preamble::Required(&[
                 "id",
-                "title",
                 "author",
                 "email",
+                "address",
                 "status",
             ])
             .boxed(),
@@ -81,9 +81,9 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
             "preamble-order",
             preamble::Order(&[
                 "id",
-                "title",
                 "author",
                 "email",
+                "address",
                 "status",
             ])
             .boxed(),
@@ -92,11 +92,11 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
         ("preamble-trim", preamble::Trim.boxed()),
         ("preamble-id", preamble::Uint("id").boxed()),
         (
-            "preamble-len-title",
+            "preamble-len-address",
             preamble::Length {
-                name: "title",
-                min: Some(2),
-                max: Some(100),
+                name: "address",
+                min: Some(58),
+                max: Some(58),
             }
             .boxed(),
         ),
@@ -106,8 +106,10 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
         (
             "markdown-order-section",
             markdown::SectionOrder(&[
-                "Rationale",
+                "Introduction",
+                "Social Profiles",
                 "Relevant Experience",
+                "Projects Affiliation",
                 "Additional Information",
             ])
             .boxed(),
@@ -115,8 +117,10 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
         (
             "markdown-required-section",
             markdown::SectionRequired(&[
-                "Rationale",
+                "Introduction",
+                "Social Profiles",
                 "Relevant Experience",
+                "Projects Affiliation",
                 "Additional Information",
             ])
             .boxed(),
@@ -127,6 +131,8 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
             preamble::OneOf {
                 name: "status",
                 values: &[
+                    "Draft",
+                    "Final",
                     "Candidate",
                     "Elected",
                     "Not Elected",

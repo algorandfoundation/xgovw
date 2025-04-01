@@ -4,7 +4,7 @@ members = [ "xgovw-lint", "xgovw-lint-js" ]
 [package]
 name = "xgovw"
 description = "xGov Council application linter"
-version = "1.0.0"
+version = "1.0.1"
 edition = "2021"
 license = "MPL-2.0"
 rust-version = "1.60"
