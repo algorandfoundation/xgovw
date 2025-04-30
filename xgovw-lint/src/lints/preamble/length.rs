@@ -23,7 +23,13 @@ impl<'n> Lint for Length<'n> {
         };
 
         let value = field.value().trim();
-
+        // Short-circuit if the value is an .algo name (NFD)
+        if let Some(captures) = regex::Regex::new(r"(?i)^[a-z0-9\-]+\.algo$")
+            .ok()
+            .and_then(|re| re.captures(value))
+        {
+            return Ok(());
+        }
         if let Some(max) = self.max {
             if value.len() > max {
                 let label = format!(
