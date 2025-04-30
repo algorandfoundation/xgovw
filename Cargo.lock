@@ -1254,7 +1254,7 @@ dependencies = [
 
 [[package]]
 name = "xgovw-lint-js"
-version = "1.0.2"
+version = "1.0.3"
 dependencies = [
  "annotate-snippets",
  "console_error_panic_hook",

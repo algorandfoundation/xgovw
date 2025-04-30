@@ -109,7 +109,7 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
                 "Introduction",
                 "Social Profiles",
                 "Relevant Experience",
-                "Projects Affiliation",
+                "Project Affiliations",
                 "Additional Information",
             ])
             .boxed(),
@@ -120,12 +120,11 @@ pub fn default_lints() -> impl Iterator<Item = (&'static str, Box<dyn Lint>)> {
                 "Introduction",
                 "Social Profiles",
                 "Relevant Experience",
-                "Projects Affiliation",
+                "Project Affiliations",
                 "Additional Information",
             ])
             .boxed(),
         ),
-        ("markdown-rel-links", markdown::RelativeLinks.boxed()),
         (
             "preamble-enum-status",
             preamble::OneOf {
